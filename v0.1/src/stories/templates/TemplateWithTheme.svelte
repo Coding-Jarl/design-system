@@ -1,26 +1,22 @@
-<script>
-	import { Template } from '@storybook/addon-svelte-csf';
+<script lang="ts">
 	import Mondrian from '../../components/Mondrian.svelte';
 	import GlassPane from '../../components/GlassPane.svelte';
-	import Button from '../acme/Button.svelte';
 	import { ThemePicker, ThemeProvider } from '$lib/theme';
 </script>
 
-<Template let:args>
-	<ThemeProvider>
-		<div class="display">
-			<div class="bg">
-				<Mondrian />
-			</div>
-			<div class="fg">
-				<GlassPane>
-					<Button {...args} />
-				</GlassPane>
-			</div>
+<ThemeProvider>
+	<div class="display">
+		<div class="bg">
+			<Mondrian />
 		</div>
-	</ThemeProvider>
-	<ThemePicker />
-</Template>
+		<div class="fg">
+			<GlassPane>
+				<slot />
+			</GlassPane>
+		</div>
+	</div>
+</ThemeProvider>
+<ThemePicker />
 
 <style>
 	.display {

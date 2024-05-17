@@ -23,11 +23,15 @@
 </script>
 
 <script lang="ts">
-	import { Story } from '@storybook/addon-svelte-csf';
+	import { Story, Template } from '@storybook/addon-svelte-csf';
 	import TemplateWithTheme from '../templates/TemplateWithTheme.svelte';
 </script>
 
-<TemplateWithTheme />
+<Template let:args>
+	<TemplateWithTheme>
+		<Button {...args} />
+	</TemplateWithTheme>
+</Template>
 
 <Story name="Isolation">
 	<Button primary label="Button" />
@@ -38,4 +42,3 @@
 	args={{ label: 'Button', primary: true }}
 	parameters={{ docs: { source: { code: '<Button variant="secondary" />' } } }}
 />
-
