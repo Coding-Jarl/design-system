@@ -23,7 +23,7 @@
 		position: relative;
 		display: grid;
 		place-items: center;
-		width: 50%;
+		width: 100dvmin;
 		aspect-ratio: 1;
 	}
 	.display .bg {
