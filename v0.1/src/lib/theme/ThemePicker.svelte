@@ -38,5 +38,13 @@
 		position: fixed;
 		bottom: 0;
 		right: 0;
+
+		background: #f2f2f2;
+			color: #1d1e22;
+
+		@media (prefers-color-scheme: dark) {
+			background: #1d1e22;
+			color: #f2f2f2;
+		}
 	}
 </style>
