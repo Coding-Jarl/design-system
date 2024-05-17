@@ -1,17 +1,17 @@
 <script lang="ts" context="module">
 	import type { Meta } from '@storybook/svelte';
-	import Button from './Button.svelte';
+	import Button from './acme/Button.svelte';
 
 	export const meta = {
 		title: 'Stories in Svelte/Button',
 		component: Button,
 		tags: ['autodocs'],
 		argTypes: {
-            backgroundColor: { control: 'color' },
-		size: {
-			control: { type: 'select' },
-			options: ['small', 'medium', 'large']
-		}
+			backgroundColor: { control: 'color' },
+			size: {
+				control: { type: 'select' },
+				options: ['small', 'medium', 'large']
+			}
 		}
 	} satisfies Meta<Button>;
 </script>
@@ -25,8 +25,5 @@
 </Template>
 
 <Story name="Primary">
-	<Button 
-    primary
-    label='Button'
-    />
+	<Button primary label="Button" />
 </Story>

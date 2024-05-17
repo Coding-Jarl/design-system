@@ -55,9 +55,6 @@
 />
 
 <style>
-	p {
-		color: var(--color-primary);
-	}
 	.display {
 		position: relative;
 		display: grid;
