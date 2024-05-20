@@ -1,0 +1,43 @@
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @typescript-eslint/eslint-plugin@7.9.0
+npm ERR! Found: eslint@9.3.0
+npm ERR! node_modules/eslint
+npm ERR!   peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0" from @eslint-community/eslint-utils@4.4.0
+npm ERR!   node_modules/@eslint-community/eslint-utils
+npm ERR!     @eslint-community/eslint-utils@"^4.4.0" from @typescript-eslint/utils@7.9.0
+npm ERR!     node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils
+npm ERR!       @typescript-eslint/utils@"7.9.0" from @typescript-eslint/eslint-plugin@7.9.0
+npm ERR!       node_modules/@typescript-eslint/eslint-plugin
+npm ERR!         dev @typescript-eslint/eslint-plugin@"^7.9.0" from the root project
+npm ERR!       1 more (@typescript-eslint/type-utils)
+npm ERR!     @eslint-community/eslint-utils@"^4.2.0" from eslint@9.3.0
+npm ERR!     2 more (@typescript-eslint/utils, eslint-plugin-svelte)
+npm ERR!   peer eslint@">=6.0.0" from eslint-compat-utils@0.5.0
+npm ERR!   node_modules/eslint-compat-utils
+npm ERR!     eslint-compat-utils@"^0.5.0" from eslint-plugin-svelte@2.39.0
+npm ERR!     node_modules/eslint-plugin-svelte
+npm ERR!       dev eslint-plugin-svelte@"^2.39.0" from the root project
+npm ERR!   5 more (eslint-config-prettier, eslint-plugin-storybook, ...)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer eslint@"^8.56.0" from @typescript-eslint/eslint-plugin@7.9.0
+npm ERR! node_modules/@typescript-eslint/eslint-plugin
+npm ERR!   dev @typescript-eslint/eslint-plugin@"^7.9.0" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: eslint@8.57.0
+npm ERR! node_modules/eslint
+npm ERR!   peer eslint@"^8.56.0" from @typescript-eslint/eslint-plugin@7.9.0
+npm ERR!   node_modules/@typescript-eslint/eslint-plugin
+npm ERR!     dev @typescript-eslint/eslint-plugin@"^7.9.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /home/valhallacode/.npm/_logs/2024-05-20T14_05_22_186Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /home/valhallacode/.npm/_logs/2024-05-20T14_05_22_186Z-debug-0.log

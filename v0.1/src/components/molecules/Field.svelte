@@ -30,6 +30,7 @@
 		background-color: color-mix(in srgb, var(--color-accent), transparent); */
 
 		outline: 1px dotted yellowgreen;
+		outline-offset: calc(var(--size-base) / 2);
 	}
 	input {
 	}
