@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { theme } from './theme';
 </script>
 
@@ -35,8 +35,18 @@
 
 <style>
 	.wrapper {
+		--light: #f2f2f2;
+		--dark: #1d1e22;
+
 		position: fixed;
 		bottom: 0;
 		right: 0;
+		background: var(--light);
+		color: var(--dark);
+
+		@media (prefers-color-scheme: dark) {
+			background: var(--dark);
+			color: var(--light);
+		}
 	}
 </style>

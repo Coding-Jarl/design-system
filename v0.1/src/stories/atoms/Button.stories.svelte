@@ -18,7 +18,7 @@
 				options: ['small', 'medium', 'large']
 			}
 		},
-		parameters: {...defaultParameters, layout: 'fullscreen'},
+		parameters: {...defaultParameters, layout: 'centered'},
 		decorators: [(_story, ctx)=>{
 			if(ctx.name==="Isolation") return {Component: Button, props: ctx.args}
 			return {Component: TemplateWithTheme, props: ctx.args}
@@ -30,7 +30,7 @@
 	<Button {...args}/>
 </Template>
 
-<Story name="Isolation" args={{ label: 'Button', primary: true }} />
+<Story name="Isolation" args={{ label: 'Button', primary: true }} parameters={injectParameters('<Button label="Button" primary />')} />
 
 <Story
 	name="Base"

@@ -1,0 +1,45 @@
+@layer reset, normalize, atoms, molecules, organisms, templates, pages;
+
+@layer reset {
+	html {
+		color-scheme: dark light;
+	}
+	body {
+		min-height: 100vh;
+	}
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+	img,
+	picture,
+	svg,
+	video {
+		display: block;
+		max-width: 100%;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		font: inherit;
+	}
+}
+
+@layer normalize {
+	.visually-hidden {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+
+	html {
+		background-color: #1d1e22;
+		color: beige;
+	}
+}

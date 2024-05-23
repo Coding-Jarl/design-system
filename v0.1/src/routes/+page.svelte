@@ -1,25 +1,22 @@
-<script>
-	import { theme } from '../lib/theme';
+<script lang="ts">
 	import GlassPane from '../components/GlassPane.svelte';
 	import Mondrian from '../components/Mondrian.svelte';
+	import Field from '../components/molecules/Field.svelte';
 </script>
 
 <div class="wrapper">
-	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-	<ul>
-		<li>{$theme.color.primary}</li>
-		<li>{$theme.color.secondary}</li>
-		<li>{$theme.color.accent}</li>
-		<li>{$theme.font.header}</li>
-		<li>{$theme.font.baseText}</li>
-	</ul>
 	<div class="display">
 		<div class="bg">
 			<Mondrian />
 		</div>
 		<div class="fg">
-			<GlassPane>Test</GlassPane>
+			<GlassPane>
+				<Field type="button" value="I haz value" />
+				<Field type="reset" value="I haz value" />
+				<Field type="submit" value="I haz value" />
+				<Field type="password" value="I haz value" />
+				<Field type="text" value="I haz value" />
+			</GlassPane>
 		</div>
 	</div>
 </div>
