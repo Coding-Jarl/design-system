@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { uniqueId } from '$lib/uniqueId';
 	import Base from './Field/Base.svelte';
 	import Button from './Field/Button.svelte';
 
@@ -16,17 +17,21 @@
 		| 'text' = 'text';
 	export let label: string = 'Look at me!';
 	export let value: string; // Beware of type "image"
+
+	let id: string;
+	let hideLabel: boolean;
+	$: id = $$props['id'] ?? uniqueId(`${type}-`);
+	$: hideLabel = ['button', 'reset', 'submit'].includes(type);
 </script>
 
-<label class="wrapper">
+<div class="wrapper">
+	<label class:visually-hidden={hideLabel} for={id}>{label}</label>
 	{#if type === 'button' || type === 'reset' || type === 'submit'}
-		<span class="visually-hidden">{label}</span>
-		<Button {type} {value} {...$$restProps} />
-	{:else if type === 'text' || type === 'password' || type === 'number'}
-		<span>{label}</span>
-		<Base {type} bind:value {...$$restProps} />
+		<Button {type} {id} {value} {...$$restProps} />
+	{:else}
+		<Base {type} {id} bind:value {...$$restProps} />
 	{/if}
-</label>
+</div>
 
 <!-- <form>
     <Field type="text" label="title" />
@@ -36,14 +41,14 @@
 
 <style>
 	@layer molecules {
-		label {
+		.wrapper {
 			position: relative;
 		}
-		label:focus-within {
+		.wrapper:focus-within {
 			outline: 1px dotted yellowgreen;
 			outline-offset: calc(var(--size-base) / 2);
 		}
-		span {
+		label {
 			position: absolute;
 			transform-origin: 0 -100%;
 			transform: scale(0.75) translateY(-1rem);

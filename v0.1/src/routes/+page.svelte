@@ -16,6 +16,7 @@
 				<Field type="submit" value="I haz value" />
 				<Field type="password" value="I haz value" />
 				<Field type="text" value="I haz value" />
+				<Field type="text" value="I haz value & id" id="name" />
 			</GlassPane>
 		</div>
 	</div>
