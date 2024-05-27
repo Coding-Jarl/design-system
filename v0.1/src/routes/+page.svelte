@@ -11,20 +11,20 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
-				<Field type="button" value="I haz value" />
-				<Field type="reset" value="I haz value" />
-				<Field type="submit" value="I haz value" />
-				<Field type="password" value="I haz value" />
-				<Field type="text" value="I haz value" />
+				<Field label="Button" name="xyz" type="button" value="I haz value" />
+				<Field label="Reset" name="xyz" type="reset" value="I haz value" />
+				<Field label="Submit" name="xyz" type="submit" value="I haz value" />
+				<Field label="Password" name="xyz" type="password" value="I haz value" />
+				<Field label="Text" name="xyz" type="text" value="I haz value" />
+				<Field label="TextArea" name="xyz" type="textarea" value="I haz value" />
+				<Field label="Number" name="xyz" type="number" value="I haz value" />
+				<Field label="Checkbox" name="xyz" type="checkbox" value="I haz value" />
 			</GlassPane>
 		</div>
 	</div>
 </div>
 
 <style>
-	p {
-		color: var(--color-primary);
-	}
 	.display {
 		position: relative;
 		display: grid;

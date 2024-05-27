@@ -1,9 +1,8 @@
 <script lang="ts">
-	export let type;
 	export let value;
 </script>
 
-<input {type} {value} {...$$restProps} />
+<input type="number" {value} {...$$restProps} />
 
 <style>
 </style>

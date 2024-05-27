@@ -4,7 +4,7 @@
 	const themeToStyle = (theme: Record<string, unknown>, path = ''): string => {
 		return Object.entries(theme)
 			.flatMap(([key, val]) => {
-				if (typeof val === 'string') {
+				if (typeof val === 'string' || typeof val === 'number') {
 					return `--${path}${key}:${val};`;
 				}
 				return themeToStyle(val as Record<string, unknown>, `${path}${key}-`);

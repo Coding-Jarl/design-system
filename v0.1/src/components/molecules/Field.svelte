@@ -1,32 +1,52 @@
 <script lang="ts">
-	import Base from './Field/Base.svelte';
-	import Button from './Field/Button.svelte';
+	import { uniqueId } from '$lib/uniqueId';
+	import BaseField from './Field/BaseField.svelte';
+	import ButtonField from './Field/ButtonField.svelte';
+	import CheckBoxField from './Field/CheckBoxField.svelte';
+	import NumberField from './Field/NumberField.svelte';
+	import TextAreaField from './Field/TextAreaField.svelte';
 
-	export let type:
+	type Type =
 		| 'button'
 		| 'reset'
 		| 'submit'
-		// | 'checkbox'
+		| 'checkbox'
 		// | 'radio'
 		// | 'select'
 		// | 'file'
-		// | 'number'
-		// | 'textarea'
+		| 'number'
+		| 'textarea'
 		| 'password'
-		| 'text' = 'text';
-	export let label: string = 'Look at me!';
+		| 'text';
+	export let type: Type = 'text';
+	export let label: string;
+	export let name: string;
 	export let value: string; // Beware of type "image"
+	let id: string;
+	let hideLabel: boolean;
+	$: id = $$props['id'] ?? uniqueId(`${type}-`);
+	$: hideLabel = ['button', 'reset', 'submit'].includes(type);
+	function isAmong<T extends Type>(type: Type, candidates: T[]): type is T {
+		return candidates.includes(type as T);
+	}
 </script>
 
-<label class="wrapper">
-	{#if type === 'button' || type === 'reset' || type === 'submit'}
-		<span class="visually-hidden">{label}</span>
-		<Button {type} {value} {...$$restProps} />
-	{:else if type === 'text' || type === 'password' || type === 'number'}
-		<span>{label}</span>
-		<Base {type} bind:value {...$$restProps} />
+<div class="wrapper">
+	<label class:visually-hidden={hideLabel} for={id}>{label}</label>
+	{#if isAmong(type, ['button', 'reset', 'submit'])}
+		<ButtonField {id} {name} {type} {value} {...$$restProps} />
+	{:else if isAmong(type, ['textarea'])}
+		<TextAreaField {id} {name} bind:value {...$$restProps} />
+	{:else if isAmong(type, ['number'])}
+		<NumberField {id} {name} bind:value {...$$restProps} />
+	{:else if isAmong(type, ['text', 'password'])}
+		<BaseField {id} {name} {type} bind:value {...$$restProps} />
+	{:else if isAmong(type, ['checkbox'])}
+		<CheckBoxField {id} {name} bind:value {...$$restProps} />
+	{:else}
+		<p>Unsupported Field type !</p>
 	{/if}
-</label>
+</div>
 
 <!-- <form>
     <Field type="text" label="title" />
@@ -36,14 +56,16 @@
 
 <style>
 	@layer molecules {
-		label {
+		.wrapper {
 			position: relative;
+			display: flex;
+			flex-flow: row;
 		}
-		label:focus-within {
-			outline: 1px dotted yellowgreen;
-			outline-offset: calc(var(--size-base) / 2);
+		.wrapper:focus-within {
+			outline: 2px solid var(--color-accent);
+			outline-offset: calc(var(--size-base) / 5);
 		}
-		span {
+		.wrapper span {
 			position: absolute;
 			transform-origin: 0 -100%;
 			transform: scale(0.75) translateY(-1rem);
