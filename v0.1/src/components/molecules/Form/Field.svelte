@@ -21,6 +21,7 @@
 	export let type: Type = 'text';
 	export let label: string;
 	export let name: string;
+	export let errors: string[] | undefined = undefined;
 	export let value: string; // Beware of type "image"
 	let id: string;
 	let hideLabel: boolean;
@@ -46,6 +47,7 @@
 	{:else}
 		<p>Unsupported Field type !</p>
 	{/if}
+	{#if errors}<span class="invalid">{errors}</span>{/if}
 </div>
 
 <!-- <form>
