@@ -1,12 +1,5 @@
-<script lang="ts">
-	import { uniqueId } from '$lib/uniqueId';
-	import BaseField from './Field/BaseField.svelte';
-	import ButtonField from './Field/ButtonField.svelte';
-	import CheckBoxField from './Field/CheckBoxField.svelte';
-	import NumberField from './Field/NumberField.svelte';
-	import TextAreaField from './Field/TextAreaField.svelte';
-
-	type Type =
+<script lang="ts" context="module">
+	export type Type =
 		| 'button'
 		| 'reset'
 		| 'submit'
@@ -18,6 +11,16 @@
 		| 'textarea'
 		| 'password'
 		| 'text';
+</script>
+
+<script lang="ts">
+	import { uniqueId } from '$lib/uniqueId';
+	import BaseField from './Field/BaseField.svelte';
+	import ButtonField from './Field/ButtonField.svelte';
+	import CheckBoxField from './Field/CheckBoxField.svelte';
+	import NumberField from './Field/NumberField.svelte';
+	import TextAreaField from './Field/TextAreaField.svelte';
+
 	export let type: Type = 'text';
 	export let label: string;
 	export let name: string;

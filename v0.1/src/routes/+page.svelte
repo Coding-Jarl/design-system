@@ -1,12 +1,56 @@
 <script lang="ts">
-	import { superForm } from 'sveltekit-superforms';
 	import GlassPane from '../components/GlassPane.svelte';
 	import Mondrian from '../components/Mondrian.svelte';
-	import Field from '../components/molecules/Form/Field.svelte';
+	import Form from '../components/molecules/Form/Form.svelte';
+	import type { Type } from '../components/molecules/Form/Field.svelte';
+	import type { PageData } from './$types';
 
-	export let data;
+	export let data: PageData;
 
-	const { form, enhance, errors } = superForm(data.form);
+	const fields = [
+		{
+			name: 'text',
+			label: 'text',
+			type: 'text' as Type,
+			value: 'I haz value'
+		},
+		{
+			name: 'textarea',
+			label: 'textarea',
+			type: 'textarea' as Type,
+			value: 'I haz value'
+		},
+		{
+			name: 'number',
+			label: 'number',
+			type: 'number' as Type,
+			value: '0'
+		},
+		{
+			name: 'checkbox',
+			label: 'checkbox',
+			type: 'checkbox' as Type,
+			value: false
+		},
+		{
+			name: 'button',
+			label: 'button',
+			type: 'button' as Type,
+			value: 'I haz value'
+		},
+		{
+			name: 'reset',
+			label: 'reset',
+			type: 'reset' as Type,
+			value: 'I haz value'
+		},
+		{
+			name: 'submit',
+			label: 'submit',
+			type: 'submit' as Type,
+			value: 'I haz value'
+		}
+	];
 </script>
 
 <div class="wrapper">
@@ -16,29 +60,7 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
-				<!-- <Field label="Button" name="xyz" type="button" value="I haz value" />
-				<Field label="Reset" name="xyz" type="reset" value="I haz value" />
-				<Field label="Submit" name="xyz" type="submit" value="I haz value" />
-				<Field label="Password" name="xyz" type="password" value="I haz value" />
-				<Field label="Text" name="xyz" type="text" value="I haz value" />
-				<Field label="TextArea" name="xyz" type="textarea" value="I haz value" />
-				<Field label="Number" name="xyz" type="number" value="I haz value" />
-				<Field label="Checkbox" name="xyz" type="checkbox" value="I haz value" /> -->
-
-				<form method="POST" use:enhance>
-					<Field type="text" name="name" label="Text" bind:value={$form.name} />
-					{#if $errors.name}<span class="invalid">{$errors.name}</span>{/if}
-
-					<Field
-						type="text"
-						name="email"
-						label="Email"
-						bind:value={$form.email}
-						errors={$errors.email}
-					/>
-
-					<Field type="submit" name="submit" label="Envoyer" value="Envoyer" />
-				</form>
+				<Form {fields} formData={data.form} />
 			</GlassPane>
 		</div>
 	</div>

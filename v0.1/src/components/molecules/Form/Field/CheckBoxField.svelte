@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let value;
+	export let value: boolean;
 </script>
 
-<input type="checkbox" {value} {...$$restProps} />
+<input type="checkbox" bind:checked={value} {...$$restProps} />
 
 <style>
 </style>

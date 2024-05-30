@@ -4,8 +4,10 @@ import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
 
 const schema = z.object({
-	name: z.string().default('Hello world!'),
-	email: z.string().email()
+	text: z.string().default("I'm a text!"),
+	textarea: z.string().default("I'm a textarea!"),
+	number: z.number().gt(0).default(-1),
+	checkbox: z.boolean().default(false)
 });
 
 export const load = async () => {
