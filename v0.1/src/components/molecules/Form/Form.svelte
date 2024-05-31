@@ -1,9 +1,11 @@
-<script lang="ts" generics="T extends Record<string,unknown>">
+<script lang="ts" generics="T extends Record<string,unknown>, K extends keyof T & string">
 	import SuperDebug, { superForm, type SuperValidated } from 'sveltekit-superforms';
-	import type { ComponentProps } from 'svelte';
-	import Field from './Field.svelte';
+	import Field, { type FieldProps } from './Field.svelte';
 
-	export let fields: ComponentProps<Field>[] = [];
+	type Field = Omit<FieldProps, 'errors' | 'name'> & {
+		name: K;
+	};
+	export let fields: Field[] = [];
 	export let formData: SuperValidated<T>;
 
 	const { form, enhance, errors } = superForm(formData, {});
@@ -12,7 +14,7 @@
 {#if formData}
 	<form method="POST" use:enhance>
 		{#each fields as field}
-			<Field {...field} bind:value={$form[field.name]} errors={$errors[field.name]} />
+			<Field {...field} bind:value={$form[field.name]} errors={$errors} />
 		{/each}
 	</form>
 	<SuperDebug data={$form} />
