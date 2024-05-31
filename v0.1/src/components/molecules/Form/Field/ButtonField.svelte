@@ -1,9 +1,15 @@
 <script lang="ts">
-	export let type = 'button' || 'reset' || 'submit';
-	export let value;
+	import type { HTMLInputAttributes } from 'svelte/elements';
+
+	type $$Props = Omit<HTMLInputAttributes, 'type' | 'value'> & {
+		type: 'button' | 'reset' | 'submit';
+		name: string;
+		value: string;
+	};
+	export let value: $$Props['value'];
 </script>
 
-<input {type} {value} {...$$restProps} />
+<input {value} {...$$restProps} />
 
 <style>
 </style>

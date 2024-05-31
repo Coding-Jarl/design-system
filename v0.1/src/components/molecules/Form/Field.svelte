@@ -11,6 +11,14 @@
 		| 'textarea'
 		| 'password'
 		| 'text';
+
+	export type FieldProps = {
+		name: string;
+		label: string;
+		errors?: Record<string, string[]>;
+		type: 'button' | 'reset' | 'submit' | 'number' | 'textarea' | 'password' | 'text' | 'checkbox';
+		value: any;
+	};
 </script>
 
 <script lang="ts">
@@ -21,22 +29,27 @@
 	import NumberField from './Field/NumberField.svelte';
 	import TextAreaField from './Field/TextAreaField.svelte';
 
-	export let type: Type = 'text';
-	export let label: string;
-	export let name: string;
-	export let errors: string[] | undefined = undefined;
-	export let value: string; // Beware of type "image"
+	type $$Props = FieldProps;
+
+	export let type: $$Props['type'];
+	export let label: $$Props['label'];
+	export let name: $$Props['name'];
+	export let errors: $$Props['errors'] = undefined;
+	export let value: $$Props['value']; // Beware of type "image"
+
 	let id: string;
 	let hideLabel: boolean;
 	$: id = $$props['id'] ?? uniqueId(`${type}-`);
-	$: hideLabel = ['button', 'reset', 'submit'].includes(type);
-	function isAmong<T extends Type>(type: Type, candidates: T[]): type is T {
+	$: hideLabel = (['button', 'reset', 'submit'] as $$Props['type'][]).includes(type);
+
+	function isAmong<T extends $$Props['type']>(type: $$Props['type'], candidates: T[]): type is T {
 		return candidates.includes(type as T);
 	}
 </script>
 
 <div class="wrapper">
 	<label class:visually-hidden={hideLabel} for={id}>{label}</label>
+
 	{#if isAmong(type, ['button', 'reset', 'submit'])}
 		<ButtonField {id} {name} {type} {value} {...$$restProps} />
 	{:else if isAmong(type, ['textarea'])}
@@ -48,9 +61,11 @@
 	{:else if isAmong(type, ['checkbox'])}
 		<CheckBoxField {id} {name} bind:value {...$$restProps} />
 	{:else}
+		{type}
 		<p>Unsupported Field type !</p>
 	{/if}
-	{#if errors}<span class="invalid">{errors}</span>{/if}
+
+	{#if errors?.[name]}<span class="invalid">{errors[name]}</span>{/if}
 </div>
 
 <!-- <form>

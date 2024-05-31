@@ -2,7 +2,7 @@
 	import GlassPane from '../components/GlassPane.svelte';
 	import Mondrian from '../components/Mondrian.svelte';
 	import Form from '../components/molecules/Form/Form.svelte';
-	import type { Type } from '../components/molecules/Form/Field.svelte';
+	import type { FieldProps } from '../components/molecules/Form/Field.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -11,46 +11,46 @@
 		{
 			name: 'text',
 			label: 'text',
-			type: 'text' as Type,
+			type: 'text',
 			value: 'I haz value'
 		},
 		{
 			name: 'textarea',
 			label: 'textarea',
-			type: 'textarea' as Type,
+			type: 'textarea',
 			value: 'I haz value'
 		},
 		{
 			name: 'number',
 			label: 'number',
-			type: 'number' as Type,
+			type: 'number',
 			value: '0'
 		},
 		{
 			name: 'checkbox',
 			label: 'checkbox',
-			type: 'checkbox' as Type,
+			type: 'checkbox',
 			value: false
 		},
 		{
 			name: 'button',
 			label: 'button',
-			type: 'button' as Type,
+			type: 'button',
 			value: 'I haz value'
 		},
 		{
 			name: 'reset',
 			label: 'reset',
-			type: 'reset' as Type,
+			type: 'reset',
 			value: 'I haz value'
 		},
 		{
 			name: 'submit',
 			label: 'submit',
-			type: 'submit' as Type,
+			type: 'submit',
 			value: 'I haz value'
 		}
-	];
+	] as const satisfies Omit<FieldProps, 'errors'>[];
 </script>
 
 <div class="wrapper">

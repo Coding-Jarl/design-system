@@ -1,8 +1,15 @@
 <script lang="ts">
-	export let value;
+	import type { HTMLTextareaAttributes } from 'svelte/elements';
+	
+	type $$Props = Omit<HTMLTextareaAttributes, 'value'> & {
+		type?: 'textarea';
+		name: string;
+		value: string;
+	};
+	export let value: $$Props['value'];
 </script>
 
-<textarea {value} {...$$restProps} spellcheck="false" />
+<textarea bind:value {...$$restProps} spellcheck="false" />
 
 <style>
 	textarea {
