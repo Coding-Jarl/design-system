@@ -18,6 +18,12 @@
 				<Link href="ftp://myftp.com">Test</Link>
 				<Link href="mailto:valhalla@spamland.com">Test</Link>
 				<Link href="tel:+336.06.06.06.06">Test</Link> -->
+				<Link href="https://google.com">https://google.com</Link>
+				<Link href="//google.com">//google.com</Link>
+				<Link href="/form">/form</Link>
+				<Link href="#anchor">#anchor</Link>
+				<Link href="mailto:aaa@aaa.com">mailto:aaa@aaa.com</Link>
+				<Link href="tel:+33612345678">tel:+33612345678</Link>
 			</GlassPane>
 		</div>
 	</div>
