@@ -1,14 +1,14 @@
 <script lang="ts">
-	import type { HTMLInputAttributes } from 'svelte/elements';
-	type $$Props = Omit<HTMLInputAttributes, 'type' | 'value'> & {
+	import type { HTMLButtonAttributes } from 'svelte/elements';
+	type $$Props = Omit<HTMLButtonAttributes, 'type' | 'value'> & {
 		type: 'button' | 'reset' | 'submit';
-		name: string;
-		value: string;
+		label: string;
 	};
-	export let value: $$Props['value'];
+	export let label: $$Props['label'];
+	export let type: $$Props['type'];
 </script>
 
-<input {value} {...$$restProps} />
+<button {type} {...$$restProps}>{label}</button>
 
 <style>
 </style>

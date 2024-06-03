@@ -11,15 +11,11 @@ const schema = z.object({
 		.default("I'm a text!"),
 	textarea: z.string().default("I'm a textarea!"),
 	number: z.number().gt(0).default(-1),
-	checkbox: z.boolean().default(false),
-	button: z.string().default("I'm a button!"),
-	reset: z.string().default("I'm a reset!"),
-	submit: z.string().default("I'm a submit!")
+	checkbox: z.boolean().default(false)
 });
 
 export const load = async () => {
 	const form = await superValidate(zod(schema));
-
 	return { form };
 };
 

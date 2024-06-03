@@ -31,24 +31,6 @@
 			label: 'checkbox',
 			type: 'checkbox',
 			value: false
-		},
-		{
-			name: 'button',
-			label: 'button',
-			type: 'button',
-			value: 'I haz value'
-		},
-		{
-			name: 'reset',
-			label: 'reset',
-			type: 'reset',
-			value: 'I haz value'
-		},
-		{
-			name: 'submit',
-			label: 'submit',
-			type: 'submit',
-			value: 'I haz value'
 		}
 	] as const satisfies Omit<FieldProps, 'errors'>[];
 </script>
@@ -60,7 +42,7 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
-				<Form {fields} formData={data.form} />
+				<Form {fields} formData={data.form} submitText="Go!" />
 			</GlassPane>
 		</div>
 	</div>

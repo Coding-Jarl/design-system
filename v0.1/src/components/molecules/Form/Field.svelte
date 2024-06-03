@@ -48,7 +48,7 @@
 <div class="wrapper">
 	<label class:visually-hidden={hideLabel} for={id}>{label}</label>
 	{#if isAmong(type, ['button', 'reset', 'submit'])}
-		<ButtonField {id} {name} {type} {value} {...$$restProps} />
+		<ButtonField {id} {name} {type} {label} {...$$restProps} />
 	{:else if isAmong(type, ['textarea'])}
 		<TextAreaField {id} {name} bind:value {...$$restProps} />
 	{:else if isAmong(type, ['number'])}
@@ -73,6 +73,21 @@
 <style>
 	@layer molecules {
 		.wrapper {
+			display: flex;
+			flex-flow: column nowrap;
+			margin: 0.5rem;
+		}
+		.wrapper:focus-within {
+			outline: 2px solid var(--color-accent);
+			outline-offset: calc(var(--size-base) / 5);
+		}
+		.wrapper:has([type='checkbox']) {
+			flex-flow: row nowrap;
+		}
+		.wrapper:has(.invalid) {
+			border: 2px solid red;
+		}
+		/* .wrapper {
 			position: relative;
 			display: flex;
 			flex-flow: row;
@@ -85,6 +100,6 @@
 			position: absolute;
 			transform-origin: 0 -100%;
 			transform: scale(0.75) translateY(-1rem);
-		}
+		} */
 	}
 </style>
