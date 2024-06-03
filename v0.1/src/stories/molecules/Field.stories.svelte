@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import type { Meta } from '@storybook/svelte';
-	import Field from '../../components/molecules/Form/Field.svelte';
+	import Field from '../../lib/components/molecules/Form/Field.svelte';
 
 	export const meta = {
 		title: 'Molecules/Field',
@@ -22,8 +22,8 @@
 
 <script lang="ts">
 	import { Story, Template } from '@storybook/addon-svelte-csf';
-	import Mondrian from '../../components/Mondrian.svelte';
-	import GlassPane from '../../components/GlassPane.svelte';
+	import Mondrian from '../../lib/components/Mondrian.svelte';
+	import GlassPane from '../../lib/components/GlassPane.svelte';
 	import ThemeProvider from '$lib/theme/ThemeProvider.svelte';
 	import ThemePicker from '$lib/theme/ThemePicker.svelte';
 </script>

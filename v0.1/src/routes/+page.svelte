@@ -1,38 +1,6 @@
 <script lang="ts">
-	import GlassPane from '../components/GlassPane.svelte';
-	import Mondrian from '../components/Mondrian.svelte';
-	import Form from '../components/molecules/Form/Form.svelte';
-	import type { FieldProps } from '../components/molecules/Form/Field.svelte';
-	import type { PageData } from './$types';
-
-	export let data: PageData;
-
-	const fields = [
-		{
-			name: 'text',
-			label: 'text',
-			type: 'text',
-			value: 'I haz value'
-		},
-		{
-			name: 'textarea',
-			label: 'textarea',
-			type: 'textarea',
-			value: 'I haz value'
-		},
-		{
-			name: 'number',
-			label: 'number',
-			type: 'number',
-			value: '0'
-		},
-		{
-			name: 'checkbox',
-			label: 'checkbox',
-			type: 'checkbox',
-			value: false
-		}
-	] as const satisfies Omit<FieldProps, 'errors'>[];
+	import GlassPane from '$lib/components/GlassPane.svelte';
+	import Mondrian from '$lib/components/Mondrian.svelte';
 </script>
 
 <div class="wrapper">
@@ -42,7 +10,11 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
-				<Form {fields} formData={data.form} submitText="Go!" />
+				<ul>
+					<li>
+						<a href="/form">Formulaires</a>
+					</li>
+				</ul>
 			</GlassPane>
 		</div>
 	</div>

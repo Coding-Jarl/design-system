@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Mondrian from '../../components/Mondrian.svelte';
-	import GlassPane from '../../components/GlassPane.svelte';
+	import Mondrian from '../../lib/components/Mondrian.svelte';
+	import GlassPane from '../../lib/components/GlassPane.svelte';
 	import { ThemePicker, ThemeProvider } from '$lib/theme';
 </script>
 

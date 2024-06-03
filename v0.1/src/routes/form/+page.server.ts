@@ -25,7 +25,6 @@ export const actions = {
 		if (!form.valid) {
 			return fail(400, { form });
 		}
-		console.log(form);
 		return message(form, 'Form posted successfully!');
 	}
 };
