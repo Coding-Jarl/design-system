@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
 	import type { Meta } from '@storybook/svelte';
-	import Field from '../../components/molecules/Field.svelte';
+	import Field from '../../components/molecules/Form/Field.svelte';
 
 	export const meta = {
 		title: 'Molecules/Field',
