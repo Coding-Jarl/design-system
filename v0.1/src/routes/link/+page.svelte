@@ -11,14 +11,13 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
-				<ul>
-					<li>
-						<Link href="/form">Formulaires</Link>
-					</li>
-					<li>
-						<Link href="/link">Liens</Link>
-					</li>
-				</ul>
+				<Link href="/form">Internal link</Link>
+				<Link href="#undefAnchor">Anchor</Link>
+				<Link href="https://www.google.com">External link</Link>
+				<!-- <Link href="//www.google.com">Test</Link>
+				<Link href="ftp://myftp.com">Test</Link>
+				<Link href="mailto:valhalla@spamland.com">Test</Link>
+				<Link href="tel:+336.06.06.06.06">Test</Link> -->
 			</GlassPane>
 		</div>
 	</div>
@@ -28,6 +27,7 @@
 	.display {
 		position: relative;
 		display: grid;
+		place-items: center;
 		width: 50%;
 		aspect-ratio: 1;
 	}
