@@ -1,6 +1,7 @@
 <script lang="ts">
 	import GlassPane from '$lib/components/GlassPane.svelte';
 	import Mondrian from '$lib/components/Mondrian.svelte';
+	import Header from '$lib/components/atoms/Header.svelte';
 	import Link from '$lib/components/atoms/Link.svelte';
 </script>
 
@@ -11,6 +12,7 @@
 		</div>
 		<div class="fg">
 			<GlassPane>
+				<Header>Mes composants</Header>
 				<ul>
 					<li>
 						<Link href="/form">Formulaires</Link>

@@ -27,10 +27,10 @@
 ## Atoms
 
 - [x] Button
-- [ ] Header (1~6)
+- [x] Header
 - [ ] List (ul, ol, ...)
 - [x] Link
-- [ ] Anchor
+- [x] Anchor
 - [ ] Image
 - [ ] Video
 - [ ] Text
