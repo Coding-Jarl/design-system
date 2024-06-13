@@ -4,10 +4,16 @@
 	import Header from '$lib/components/atoms/Header.svelte';
 	import Link from '$lib/components/atoms/Link.svelte';
 	import List from '$lib/components/atoms/List.svelte';
-	import Video from '$lib/components/atoms/Video.svelte';
+	import Video, {
+		type Track,
+		type TrackWithCaptions,
+		type Source
+	} from '$lib/components/atoms/Video.svelte';
 
-	const sources = [{ src: '/sample.mp4', type: 'video/mp4' }];
-	const tracks = [{ src: '/sample.vtt', label: 'Mock Track', srclang: 'en', kind: 'captions' }];
+	const sources = [{ src: '/sample.mp4', type: 'video/mp4' }] satisfies AtLeastOne<Source>;
+	const tracks = [
+		{ src: '/sample.vtt', label: 'Mock Track', srclang: 'en', kind: 'captions' }
+	] satisfies AtLeastOne<Track, TrackWithCaptions>;
 </script>
 
 <div class="wrapper">
@@ -23,6 +29,7 @@
 					<li><Link href="/link">Liens</Link></li>
 				</List>
 				<List type="I" data={[1, 2, 3]} />
+
 				<Video {sources} {tracks} />
 			</GlassPane>
 		</div>

@@ -1,14 +1,17 @@
-<script lang="ts">
-	type Source = { src: string; type: string };
-	export let sources: [Source, ...Source[]]; // Forces an array to have at least 1 elt
-
-	type Track = {
+<script context="module" lang="ts">
+	export type Source = { src: string; type: string };
+	export type Track = {
 		src: string;
 		label: string;
 		srclang: string;
 		kind?: string;
 	};
-	export let tracks: [Track & { kind: 'captions' }, ...Track[]];
+	export type TrackWithCaptions = Track & { kind: 'captions' };
+</script>
+
+<script lang="ts">
+	export let sources: AtLeastOne<Source>;
+	export let tracks: AtLeastOne<Track, TrackWithCaptions>;
 </script>
 
 <!-- svelte-ignore a11y-media-has-caption -->
@@ -23,6 +26,8 @@
 
 	<slot />
 </video>
+
+<!-- <Video {sources} {subtitles}>This is my placeholder</Video> -->
 
 <style>
 </style>
