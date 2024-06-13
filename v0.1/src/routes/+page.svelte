@@ -3,6 +3,7 @@
 	import Mondrian from '$lib/components/Mondrian.svelte';
 	import Header from '$lib/components/atoms/Header.svelte';
 	import Link from '$lib/components/atoms/Link.svelte';
+	import List from '$lib/components/atoms/List.svelte';
 </script>
 
 <div class="wrapper">
@@ -13,14 +14,11 @@
 		<div class="fg">
 			<GlassPane>
 				<Header>Mes composants</Header>
-				<ul>
-					<li>
-						<Link href="/form">Formulaires</Link>
-					</li>
-					<li>
-						<Link href="/link">Liens</Link>
-					</li>
-				</ul>
+				<List>
+					<li><Link href="/form">Formulaires</Link></li>
+					<li><Link href="/link">Liens</Link></li>
+				</List>
+				<List type="I" data={[1, 2, 3]} />
 			</GlassPane>
 		</div>
 	</div>

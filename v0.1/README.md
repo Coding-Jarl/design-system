@@ -28,7 +28,7 @@
 
 - [x] Button
 - [x] Header
-- [ ] List (ul, ol, ...)
+- [x] List (ul, ol, ...)
 - [x] Link
 - [x] Anchor
 - [ ] Image
