@@ -31,9 +31,9 @@
 - [x] List (ul, ol, ...)
 - [x] Link
 - [x] Anchor
-- [ ] Image
+- [?] Image
 - [ ] Video
-- [ ] Text
+- [?] Text
 
 ## Molecules
 
