@@ -7,7 +7,7 @@
 	import Video from '$lib/components/atoms/Video.svelte';
 
 	const sources = [{ src: '/sample.mp4', type: 'video/mp4' }];
-	const tracks = [{ src: '', label: 'Mock Track', srclang: '', kind: 'captions' }];
+	const tracks = [{ src: '/sample.vtt', label: 'Mock Track', srclang: 'en', kind: 'captions' }];
 </script>
 
 <div class="wrapper">
