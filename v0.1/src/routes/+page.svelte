@@ -4,10 +4,25 @@
 	import Header from '$lib/components/atoms/Header.svelte';
 	import Link from '$lib/components/atoms/Link.svelte';
 	import List from '$lib/components/atoms/List.svelte';
-	import Video from '$lib/components/atoms/Video.svelte';
-
-	const sources = [{ src: '/sample.mp4', type: 'video/mp4' }];
-	const tracks = [{ src: '/sample.vtt', label: 'Mock Track', srclang: 'en', kind: 'captions' }];
+	import Video, {
+		type Track,
+		type TrackWithCaptions,
+		type Source
+	} from '$lib/components/atoms/Video.svelte';
+	const sources = [
+		{
+			src: '/sample.mp4',
+			type: 'video/mp4'
+		}
+	] satisfies NonEmptyArray<Source>;
+	const tracks = [
+		{
+			src: '/sample.vtt',
+			label: 'Mock Track',
+			srclang: 'en',
+			kind: 'captions'
+		}
+	] satisfies NonEmptyArray<Track, TrackWithCaptions>;
 </script>
 
 <div class="wrapper">
